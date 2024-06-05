@@ -67,7 +67,6 @@ const images = [
   },
 ];
 
-// const galeryItem = document.querySelector('.gallery-item');
 const galleryList = document.querySelector('.gallery');
 
 function galleryMarkup({ preview, original, description}) {
