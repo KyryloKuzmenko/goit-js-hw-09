@@ -67,16 +67,15 @@ const images = [
   },
 ];
 
-const galeryItem = document.querySelector('.gallery-item');
+// const galeryItem = document.querySelector('.gallery-item');
 const galleryList = document.querySelector('.gallery');
 
 function galleryMarkup({ preview, original, description}) {
   return `<li class="gallery-item">
-        <a class="gallery-link" href="large-image.jpg">
+        <a class="gallery-link" href="${original}">
           <img
             class="gallery-image"
             src="${preview}"
-            data-source="${original}"
             alt="${description}"
           />
         </a>
