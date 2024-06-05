@@ -17,6 +17,24 @@ function saveLS(key, value) {
     localStorage.setItem(key, jsonData);
 };
 
+function loadFromLS(key) {
+    const json = localStorage.getItem(key);
+    try {
+        const data = JSON.parse(json);
+        return data;
+    } catch {
+        return json;
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const data = loadFromLS(localStorageKey);
+    form.email.value = data?.email || '';
+    form.message.value = data?.message || '';
+    formData.email = data?.email || '';
+    formData.message = data?.message || '';
+});
+
 form.addEventListener('submit', event => {
     event.preventDefault();
     if (formData.email === '' || formData.message === '') {
