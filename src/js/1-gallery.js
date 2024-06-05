@@ -1,4 +1,4 @@
-import simpleLightbox from 'simplelightbox';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
@@ -70,14 +70,14 @@ const images = [
 const galeryItem = document.querySelector('.gallery-item');
 const galleryList = document.querySelector('.gallery');
 
-function galleryMarkup(obj) {
+function galleryMarkup({ preview, original, description}) {
   return `<li class="gallery-item">
         <a class="gallery-link" href="large-image.jpg">
           <img
             class="gallery-image"
-            src="${obj.preview}"
-            data-source="${obj.original}"
-            alt="${obj.description}"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
           />
         </a>
       </li>`;
@@ -92,12 +92,4 @@ const markup = imagesArr(images);
 galleryList.innerHTML = markup;
 
 
-const lightbox = new simpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
-
-lightbox.on('show.simplelightbox', function (e) {
-  e.preventDefault();
-  console.log(e);
-});
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 })
